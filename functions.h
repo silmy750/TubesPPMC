@@ -193,4 +193,29 @@ void menu (int *done, int *ulang, int jumlah_baris, int jumlah_kolom, char *Curr
 		};
 	};
 };
+
+//prosedur memindahkan data dari file ke matriks atau array
+void Matriks_Input(int jumlah_baris, int jumlah_kolom, char *MatriksInput, FILE *file){
+	int i,j;
+	char buf[jumlah_kolom];
+	for(i=0;i<jumlah_baris;i++){
+		fgets(buf,(jumlah_kolom+2),file);
+		for(j=0;j<jumlah_kolom;j++){
+			*((MatriksInput+(i*jumlah_kolom))+j) = buf[j];
+		};
+	};
+};
+
+//prosedur mencetak atau menampilkan data pada matriks
+void printMatriks(int jumlah_baris, int jumlah_kolom, char *matriks){
+	int i,j;
+	printf("\nTampilan Matriks\n\n");
+	for(i=0;i<jumlah_baris;i++){
+		for(j=0;j<jumlah_kolom;j++){
+			printf("%c ",*((matriks+(i*jumlah_kolom))+j));
+		};
+		printf("\n");
+	};
+};
+
  
