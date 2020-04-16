@@ -14,6 +14,32 @@
 #include <conio.h>
 #include <time.h> 
 
+// Prosedur memindahkan data dari file ke matriks
+void Matriks_Input(int jumlah_baris, int jumlah_kolom, char *MatriksInput, FILE *file){
+        // Deklarasi Variabel
+	int i,j;
+	char buf[jumlah_kolom];
+	for(i=0;i<jumlah_baris;i++){
+		fgets(buf,(jumlah_kolom+2),file);
+		for(j=0;j<jumlah_kolom;j++){
+			*((MatriksInput+(i*jumlah_kolom))+j) = buf[j];
+		};
+	};
+};
+
+// Prosedur menampilkan tiap data matriks
+void printMatriks(int jumlah_baris, int jumlah_kolom, char *matriks){
+	int i,j;
+	printf("\nTampilan Matriks\n\n");
+	for(i=0;i<jumlah_baris;i++){
+		for(j=0;j<jumlah_kolom;j++){
+			printf("%c ",*((matriks+(i*jumlah_kolom))+j));
+		};
+		printf("\n");
+	};
+};
+
+
 //fungsi untuk menghitung jumlah tetangga yang hidup pada suatu sel
 int count_neighbor (int jumlah_baris, int jumlah_kolom, int posisi_baris, int posisi_kolom, char *matriks){
  /*
